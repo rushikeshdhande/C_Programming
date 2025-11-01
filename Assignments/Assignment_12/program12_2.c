@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////
 //
-// Function Name : count_factors
+// Function Name : countFactors
 // Description :   Counts all positive factors of a given number
 // Input :         int
 // Output :        int
@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 
-int count_factors(int number)
+int countFactors(int number)
 {
     // Logic to return the total number of positive factors of 'number'
     int i = 0;
@@ -45,7 +45,7 @@ int main()
     printf("Enter number : ");
     scanf("%d", &number);
 
-    printf("%d\n", count_factors(number));
+    printf("%d\n", countF(number));
 
     return 0;
 }

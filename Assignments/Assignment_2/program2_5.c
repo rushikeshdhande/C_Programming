@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////
 //
-// Function Name : ChkEven
+// Function Name : chkEven
 // Description :   It checks whether a number is even or odd
 // Input :         int
 // Output :        bool
@@ -12,7 +12,7 @@
 #include<stdio.h>
 #include<stdbool.h> // for bool type
 
-bool ChkEven(int iNo)
+bool chkEven(int iNo)
 {
     if((iNo % 2) == 0)
     {

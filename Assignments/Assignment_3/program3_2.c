@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////
 //
-// Function Name : DisplayFactor
+// Function Name : displayFactor
 // Description :   It prints the even factors of a number
 // Input :         int
 // Output :        void
@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 
-void DisplayFactor(int iNo)
+void displayFactor(int iNo)
 {
     int i = 0;
 

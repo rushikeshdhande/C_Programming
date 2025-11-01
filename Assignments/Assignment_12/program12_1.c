@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////
 //
-// Function Name : print_factors
+// Function Name : printFactors
 // Description :   Prints all factors of a given number
 // Input :         int
 // Output :        void
@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 
-void print_factors(int number)
+void printFactors(int number)
 {
     // Logic to print all positive factors of 'number' in ascending o 
     int i = 0;
@@ -46,7 +46,7 @@ int main()
     printf("Enter number : ");
     scanf("%d", &number);
     
-    print_factors(number);
+    printFactors(number);
     
     return 0;
 }

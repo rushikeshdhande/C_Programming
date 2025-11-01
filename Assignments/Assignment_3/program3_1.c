@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////
 //
-// Function Name : PrintEven
+// Function Name : printEven
 // Description :   It prints the first N even numbers
 // Input :         int
 // Output :        void
@@ -11,7 +11,7 @@
 
 #include<stdio.h>
 
-void PrintEven(int iNo)
+void printEven(int iNo)
 {
     int iCnt = 0;
     
