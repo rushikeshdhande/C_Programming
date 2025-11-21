@@ -13,7 +13,7 @@
 //  Description :       It is used to check even or odd
 //  Input :             Integer
 //  Output :            Boolean
-//  Author :            Piyush Manohar Khairnar
+//  Author :            Rushikesh Dhande
 //  Date :              10/10/2025
 //
 /////////////////////////////////////////////////////////////
