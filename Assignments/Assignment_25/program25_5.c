@@ -1,0 +1,34 @@
+/*
+Output:
+1 2 3 4
+2 3 4
+3 4
+4
+*/
+
+#include<stdio.h>
+
+void Pattern(int iRow, int iCol)
+{
+    for(int i = 1; i <= iRow; i++)
+    {
+        int num = i;
+        for(int j = i; j <= iCol; j++)
+        {
+            printf("%d ", num);
+            num++;
+        }
+        printf("\n");
+    }
+}
+
+int main()
+{
+    int iValue1, iValue2;
+
+    printf("Enter number of rows and columns : ");
+    scanf("%d %d", &iValue1, &iValue2);
+
+    Pattern(iValue1, iValue2);
+    return 0;
+}
