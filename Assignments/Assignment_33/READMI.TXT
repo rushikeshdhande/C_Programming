@@ -1,0 +1,104 @@
+
+(1)
+main()
+ └── Display(1)
+       └── Display(2)
+             └── Display(3)
+                   └── Display(4)
+                         └── Display(5)
+                               └── Display(6) → returns
+
+
+Display(6) returns
+Display(5) returns (printed "*")
+Display(4) returns (printed "*")
+Display(3) returns (printed "*")
+Display(2) returns (printed "*")
+Display(1) returns (printed "*")
+main() ends
+
+
+Output:
+* * * * *
+
+(2)
+main()
+ └── Display(1)
+       └── Display(2)
+             └── Display(3)
+                   └── Display(4)
+                         └── Display(5)
+                               └── Display(6) → stops
+
+Display(6) returns
+Display(5) returns (printed 5)
+Display(4) returns (printed 4)
+Display(3) returns (printed 3)
+Display(2) returns (printed 2)
+Display(1) returns (printed 1)
+
+Output:
+1 2 3 4 5
+
+(3)
+Stack Layout
+main()
+ └── Display(5)
+       └── Display(4)
+             └── Display(3)
+                   └── Display(2)
+                         └── Display(1)
+                               └── Display(0) → stops
+
+                               
+Display(0) returns
+Display(1) returns (prints 1)
+Display(2) returns (prints 2)
+Display(3) returns (prints 3)
+Display(4) returns (prints 4)
+Display(5) returns (prints 5)
+
+Output:
+5 4 3 2 1
+
+(4)
+main()
+ └── Display('A')
+       └── Display('B')
+             └── Display('C')
+                   └── Display('D')
+                         └── Display('E')
+                               └── Display('F')
+                                     └── Display('G') → stops
+
+Display('G') returns
+Display('F') returns
+Display('E') returns
+Display('D') returns
+Display('C') returns
+Display('B') returns
+Display('A') returns
+
+Output:
+A B C D E F
+
+(5)
+main()
+ └── Display('a')
+       └── Display('b')
+             └── Display('c')
+                   └── Display('d')
+                         └── Display('e')
+                               └── Display('f')
+                                     └── Display('g') → return
+
+Display('g') returns
+Display('f')
+Display('e')
+Display('d')
+Display('c')
+Display('b')
+Display('a')
+
+Output:
+a b c d e f

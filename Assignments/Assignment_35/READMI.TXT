@@ -1,0 +1,82 @@
+
+(1)
+main()
+ └── Display(5)
+       └── Display(4)
+             └── Display(3)
+                   └── Display(2)
+                         └── Display(1)
+                               └── Display(0)
+
+
+Display(0) returns
+Display(1) returns
+Display(2) returns
+Display(3) returns
+Display(4) returns
+Display(5) returns
+
+
+
+Output happens during call expansion:
+5 * 4 * 3 * 2 * 1 *
+
+(2)
+Sum(879)
+ └── Sum(87)
+        └── Sum(8)
+               └── Sum(0)
+
+
+Sum(0) = 0
+Sum(8) = 8 + 0  = 8
+Sum(87) = 7 + 8 = 15
+Sum(879) = 9 + 15 = 24
+
+Final Output: 24
+
+(3)
+Strlen("Hello")
+ └── Strlen("ello")
+        └── Strlen("llo")
+              └── Strlen("lo")
+                    └── Strlen("o")
+                          └── Strlen("")
+
+Strlen("") = 0
+Strlen("o") = 1 + 0 = 1
+Strlen("lo") = 1 + 1 = 2
+Strlen("llo") = 1 + 2 = 3
+Strlen("ello") = 1 + 3 = 4
+Strlen("Hello") = 1 + 4 = 5
+
+Final Output: 5
+
+(4)
+Fact(5)
+ └── Fact(4)
+        └── Fact(3)
+              └── Fact(2)
+                    └── Fact(1)
+
+Fact(1) = 1
+Fact(2) = 2 * 1 = 2
+Fact(3) = 3 * 2 = 6
+Fact(4) = 4 * 6 = 24
+Fact(5) = 5 * 24 = 120
+
+Final Output: 120
+
+(5)
+Mult(523)
+ └── Mult(52)
+        └── Mult(5)
+              └── Mult(0)
+
+
+Mult(0) = 1
+Mult(5) = 5 * 1 = 5
+Mult(52) = 2 * 5 = 10
+Mult(523) = 3 * 10 = 30
+
+Final Output: 30
