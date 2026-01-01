@@ -19,36 +19,28 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-int FirstOccur(PNODE Head, int No)
+int CountEven(PNODE Head)
 {
-    int pos = 1;
-
+    int count = 0;
     while (Head != NULL)
     {
-        if (Head->Data == No)
-        {
-            return pos;
-        }
-        pos++;
+        if (Head->Data % 2 == 0)
+            count++;
         Head = Head->Next;
     }
-    return -1;   // not found
+    return count;
 }
 
 int main()
 {
     PNODE First = NULL;
-    int no;
 
     InsertFirst(&First, 11);
-    InsertFirst(&First, 21);
-    InsertFirst(&First, 51);
-    InsertFirst(&First, 21);
+    InsertFirst(&First, 20);
+    InsertFirst(&First, 32);
+    InsertFirst(&First, 41);
 
-    printf("Enter number: ");
-    scanf("%d", &no);
-
-    printf("First occurrence position: %d\n", FirstOccur(First, no));
+    printf("Even count: %d\n", CountEven(First));
 
     return 0;
 }

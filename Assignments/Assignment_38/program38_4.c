@@ -19,16 +19,13 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-int CountGreater(PNODE Head, int X)
+int Frequency(PNODE Head, int No)
 {
     int count = 0;
-
     while (Head != NULL)
     {
-        if (Head->Data > X)
-        {
+        if (Head->Data == No)
             count++;
-        }
         Head = Head->Next;
     }
     return count;
@@ -37,17 +34,18 @@ int CountGreater(PNODE Head, int X)
 int main()
 {
     PNODE First = NULL;
-    int x;
+    int no;
 
-    InsertFirst(&First, 10);
-    InsertFirst(&First, 25);
-    InsertFirst(&First, 30);
-    InsertFirst(&First, 5);
+    InsertFirst(&First, 11);
+    InsertFirst(&First, 21);
+    InsertFirst(&First, 11);
+    InsertFirst(&First, 11);
+    InsertFirst(&First, 51);
 
-    printf("Enter X: ");
-    scanf("%d", &x);
+    printf("Enter number: ");
+    scanf("%d", &no);
 
-    printf("Count greater than %d: %d\n", x, CountGreater(First, x));
+    printf("Frequency: %d\n", Frequency(First, no));
 
     return 0;
 }

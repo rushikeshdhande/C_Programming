@@ -19,34 +19,36 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-void DisplayLess(PNODE Head, int X)
+int FirstOccur(PNODE Head, int No)
 {
+    int pos = 1;
+
     while (Head != NULL)
     {
-        if (Head->Data < X)
+        if (Head->Data == No)
         {
-            printf("%d ", Head->Data);
+            return pos;
         }
+        pos++;
         Head = Head->Next;
     }
+    return -1;   // not found
 }
 
 int main()
 {
     PNODE First = NULL;
-    int x;
+    int no;
 
-    InsertFirst(&First, 10);
-    InsertFirst(&First, 25);
-    InsertFirst(&First, 5);
-    InsertFirst(&First, 40);
+    InsertFirst(&First, 11);
+    InsertFirst(&First, 21);
+    InsertFirst(&First, 51);
+    InsertFirst(&First, 21);
 
-    printf("Enter X: ");
-    scanf("%d", &x);
+    printf("Enter number: ");
+    scanf("%d", &no);
 
-    printf("Elements less than %d: ", x);
-    DisplayLess(First, x);
-    printf("\n");
+    printf("First occurrence position: %d\n", FirstOccur(First, no));
 
     return 0;
 }

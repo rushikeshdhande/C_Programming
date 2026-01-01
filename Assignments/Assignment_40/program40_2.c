@@ -19,11 +19,11 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-void DisplayOdd(PNODE Head)
+void DisplayLess(PNODE Head, int X)
 {
     while (Head != NULL)
     {
-        if (Head->Data % 2 != 0)
+        if (Head->Data < X)
         {
             printf("%d ", Head->Data);
         }
@@ -34,14 +34,18 @@ void DisplayOdd(PNODE Head)
 int main()
 {
     PNODE First = NULL;
+    int x;
 
-    InsertFirst(&First, 11);
-    InsertFirst(&First, 20);
-    InsertFirst(&First, 31);
-    InsertFirst(&First, 42);
+    InsertFirst(&First, 10);
+    InsertFirst(&First, 25);
+    InsertFirst(&First, 5);
+    InsertFirst(&First, 40);
 
-    printf("Odd elements: ");
-    DisplayOdd(First);
+    printf("Enter X: ");
+    scanf("%d", &x);
+
+    printf("Elements less than %d: ", x);
+    DisplayLess(First, x);
     printf("\n");
 
     return 0;

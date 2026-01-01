@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 struct node
 {
@@ -10,23 +9,46 @@ struct node
 
 typedef struct node NODE;
 typedef struct node* PNODE;
+typedef struct node** PPNODE;
 
-bool IsEmpty(PNODE Head)
+void InsertFirst(PPNODE Head, int no)
 {
-    if (Head == NULL)
-        return true;
-    else
-        return false;
+    PNODE newn = (PNODE)malloc(sizeof(NODE));
+    newn->Data = no;
+    newn->Next = *Head;
+    *Head = newn;
+}
+
+int LastOccur(PNODE Head, int No)
+{
+    int pos = 1, last = -1;
+
+    while (Head != NULL)
+    {
+        if (Head->Data == No)
+        {
+            last = pos;
+        }
+        pos++;
+        Head = Head->Next;
+    }
+    return last;
 }
 
 int main()
 {
     PNODE First = NULL;
+    int no;
 
-    if (IsEmpty(First))
-        printf("Linked list is EMPTY\n");
-    else
-        printf("Linked list is NOT EMPTY\n");
+    InsertFirst(&First, 11);
+    InsertFirst(&First, 21);
+    InsertFirst(&First, 51);
+    InsertFirst(&First, 21);
+
+    printf("Enter number: ");
+    scanf("%d", &no);
+
+    printf("Last occurrence position: %d\n", LastOccur(First, no));
 
     return 0;
 }

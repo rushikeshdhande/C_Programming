@@ -19,36 +19,28 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-int LastOccur(PNODE Head, int No)
+int CountOdd(PNODE Head)
 {
-    int pos = 1, last = -1;
-
+    int count = 0;
     while (Head != NULL)
     {
-        if (Head->Data == No)
-        {
-            last = pos;
-        }
-        pos++;
+        if (Head->Data % 2 != 0)
+            count++;
         Head = Head->Next;
     }
-    return last;
+    return count;
 }
 
 int main()
 {
     PNODE First = NULL;
-    int no;
 
     InsertFirst(&First, 11);
-    InsertFirst(&First, 21);
-    InsertFirst(&First, 51);
-    InsertFirst(&First, 21);
+    InsertFirst(&First, 20);
+    InsertFirst(&First, 32);
+    InsertFirst(&First, 41);
 
-    printf("Enter number: ");
-    scanf("%d", &no);
-
-    printf("Last occurrence position: %d\n", LastOccur(First, no));
+    printf("Odd count: %d\n", CountOdd(First));
 
     return 0;
 }

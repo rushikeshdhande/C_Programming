@@ -19,14 +19,25 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-void DisplayOdd(PNODE Head)
+void ReplaceNegative(PPNODE Head)
+{
+    PNODE temp = *Head;
+
+    while (temp != NULL)
+    {
+        if (temp->Data < 0)
+        {
+            temp->Data = 0;
+        }
+        temp = temp->Next;
+    }
+}
+
+void Display(PNODE Head)
 {
     while (Head != NULL)
     {
-        if (Head->Data % 2 != 0)
-        {
-            printf("%d ", Head->Data);
-        }
+        printf("%d ", Head->Data);
         Head = Head->Next;
     }
 }
@@ -35,13 +46,15 @@ int main()
 {
     PNODE First = NULL;
 
-    InsertFirst(&First, 11);
+    InsertFirst(&First, -10);
     InsertFirst(&First, 20);
-    InsertFirst(&First, 31);
-    InsertFirst(&First, 42);
+    InsertFirst(&First, -5);
+    InsertFirst(&First, 30);
 
-    printf("Odd elements: ");
-    DisplayOdd(First);
+    ReplaceNegative(&First);
+
+    printf("List after replacing negatives: ");
+    Display(First);
     printf("\n");
 
     return 0;

@@ -6,7 +6,6 @@ struct node
     int Data;
     struct node *Next;
 };
-
 typedef struct node NODE;
 typedef struct node* PNODE;
 typedef struct node** PPNODE;
@@ -19,28 +18,43 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-int CountEven(PNODE Head)
+int DisplayPrime(PNODE Head)
 {
-    int count = 0;
-    while (Head != NULL)
+    int flag;
+    PNODE temp = Head;
+
+    while (temp != NULL)
     {
-        if (Head->Data % 2 == 0)
-            count++;
-        Head = Head->Next;
+        flag = 1;
+        if (temp->Data < 2)
+            flag = 0;
+
+        for (int i = 2; i <= temp->Data / 2; i++)
+        {
+            if (temp->Data % i == 0)
+            {
+                flag = 0;
+                break;
+            }
+        }
+        if (flag == 1)
+            printf("%d ", temp->Data);
+
+        temp = temp->Next;
     }
-    return count;
+    return 0;
 }
 
 int main()
 {
     PNODE First = NULL;
-
-    InsertFirst(&First, 11);
-    InsertFirst(&First, 20);
-    InsertFirst(&First, 32);
+    InsertFirst(&First, 89);
+    InsertFirst(&First, 22);
     InsertFirst(&First, 41);
+    InsertFirst(&First, 17);
+    InsertFirst(&First, 20);
+    InsertFirst(&First, 11);
 
-    printf("Even count: %d\n", CountEven(First));
-
+    DisplayPrime(First);
     return 0;
 }

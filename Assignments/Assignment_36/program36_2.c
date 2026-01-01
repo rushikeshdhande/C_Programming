@@ -6,7 +6,6 @@ struct node
     int Data;
     struct node *Next;
 };
-
 typedef struct node NODE;
 typedef struct node* PNODE;
 typedef struct node** PPNODE;
@@ -19,30 +18,30 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-void DisplayOdd(PNODE Head)
+int SearchLastOcc(PNODE Head, int no)
 {
+    int pos = 1, lastPos = -1;
     while (Head != NULL)
     {
-        if (Head->Data % 2 != 0)
-        {
-            printf("%d ", Head->Data);
-        }
+        if (Head->Data == no)
+            lastPos = pos;
         Head = Head->Next;
+        pos++;
     }
+    return lastPos;
 }
 
 int main()
 {
     PNODE First = NULL;
-
-    InsertFirst(&First, 11);
+    InsertFirst(&First, 70);
+    InsertFirst(&First, 30);
+    InsertFirst(&First, 50);
+    InsertFirst(&First, 40);
+    InsertFirst(&First, 30);
     InsertFirst(&First, 20);
-    InsertFirst(&First, 31);
-    InsertFirst(&First, 42);
+    InsertFirst(&First, 10);
 
-    printf("Odd elements: ");
-    DisplayOdd(First);
-    printf("\n");
-
+    printf("Last Occurrence : %d", SearchLastOcc(First, 30));
     return 0;
 }

@@ -6,7 +6,6 @@ struct node
     int Data;
     struct node *Next;
 };
-
 typedef struct node NODE;
 typedef struct node* PNODE;
 typedef struct node** PPNODE;
@@ -19,28 +18,27 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-int CountOdd(PNODE Head)
+int AdditionEven(PNODE Head)
 {
-    int count = 0;
+    int sum = 0;
     while (Head != NULL)
     {
-        if (Head->Data % 2 != 0)
-            count++;
+        if (Head->Data % 2 == 0)
+            sum += Head->Data;
+
         Head = Head->Next;
     }
-    return count;
+    return sum;
 }
 
 int main()
 {
     PNODE First = NULL;
-
-    InsertFirst(&First, 11);
-    InsertFirst(&First, 20);
-    InsertFirst(&First, 32);
     InsertFirst(&First, 41);
+    InsertFirst(&First, 32);
+    InsertFirst(&First, 20);
+    InsertFirst(&First, 11);
 
-    printf("Odd count: %d\n", CountOdd(First));
-
+    printf("%d", AdditionEven(First));
     return 0;
 }

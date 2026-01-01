@@ -19,35 +19,28 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-int CountLess(PNODE Head, int X)
+void DisplayEven(PNODE Head)
 {
-    int count = 0;
-
     while (Head != NULL)
     {
-        if (Head->Data < X)
-        {
-            count++;
-        }
+        if (Head->Data % 2 == 0)
+            printf("%d ", Head->Data);
         Head = Head->Next;
     }
-    return count;
 }
 
 int main()
 {
     PNODE First = NULL;
-    int x;
 
-    InsertFirst(&First, 10);
-    InsertFirst(&First, 25);
-    InsertFirst(&First, 30);
-    InsertFirst(&First, 5);
+    InsertFirst(&First, 11);
+    InsertFirst(&First, 20);
+    InsertFirst(&First, 32);
+    InsertFirst(&First, 41);
 
-    printf("Enter X: ");
-    scanf("%d", &x);
-
-    printf("Count less than %d: %d\n", x, CountLess(First, x));
+    printf("Even elements: ");
+    DisplayEven(First);
+    printf("\n");
 
     return 0;
 }

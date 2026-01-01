@@ -6,7 +6,6 @@ struct node
     int Data;
     struct node *Next;
 };
-
 typedef struct node NODE;
 typedef struct node* PNODE;
 typedef struct node** PPNODE;
@@ -19,33 +18,35 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-int Frequency(PNODE Head, int No)
+int SecMaximum(PNODE Head)
 {
-    int count = 0;
+    int max1 = Head->Data;
+    int max2 = -1;
+
     while (Head != NULL)
     {
-        if (Head->Data == No)
-            count++;
+        if (Head->Data > max1)
+        {
+            max2 = max1;
+            max1 = Head->Data;
+        }
+        else if (Head->Data > max2 && Head->Data != max1)
+        {
+            max2 = Head->Data;
+        }
         Head = Head->Next;
     }
-    return count;
+    return max2;
 }
 
 int main()
 {
     PNODE First = NULL;
-    int no;
+    InsertFirst(&First, 240);
+    InsertFirst(&First, 320);
+    InsertFirst(&First, 230);
+    InsertFirst(&First, 110);
 
-    InsertFirst(&First, 11);
-    InsertFirst(&First, 21);
-    InsertFirst(&First, 11);
-    InsertFirst(&First, 11);
-    InsertFirst(&First, 51);
-
-    printf("Enter number: ");
-    scanf("%d", &no);
-
-    printf("Frequency: %d\n", Frequency(First, no));
-
+    printf("%d", SecMaximum(First));
     return 0;
 }

@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 struct node
 {
     int Data;
     struct node *Next;
 };
-
 typedef struct node NODE;
 typedef struct node* PNODE;
 typedef struct node** PPNODE;
@@ -20,34 +18,37 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-bool Search(PNODE Head, int No)
+int DisplayPerfect(PNODE Head)
 {
-    while (Head != NULL)
+    int sum = 0;
+    PNODE temp = Head;
+
+    while (temp != NULL)
     {
-        if (Head->Data == No)
-            return true;
-        Head = Head->Next;
+        sum = 0;
+        for (int i = 1; i <= temp->Data / 2; i++)
+        {
+            if (temp->Data % i == 0)
+                sum += i;
+        }
+        if (sum == temp->Data)
+            printf("%d ", temp->Data);
+
+        temp = temp->Next;
     }
-    return false;
+    return 0;
 }
 
 int main()
 {
     PNODE First = NULL;
-    int no;
-
+    InsertFirst(&First, 89);
+    InsertFirst(&First, 6);
+    InsertFirst(&First, 41);
+    InsertFirst(&First, 17);
+    InsertFirst(&First, 28);
     InsertFirst(&First, 11);
-    InsertFirst(&First, 21);
-    InsertFirst(&First, 51);
-    InsertFirst(&First, 101);
 
-    printf("Enter number to search: ");
-    scanf("%d", &no);
-
-    if (Search(First, no))
-        printf("Number is present\n");
-    else
-        printf("Number is NOT present\n");
-
+    DisplayPerfect(First);
     return 0;
 }

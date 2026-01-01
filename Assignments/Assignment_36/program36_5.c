@@ -6,7 +6,6 @@ struct node
     int Data;
     struct node *Next;
 };
-
 typedef struct node NODE;
 typedef struct node* PNODE;
 typedef struct node** PPNODE;
@@ -19,30 +18,26 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-void DisplayOdd(PNODE Head)
+int Minimum(PNODE Head)
 {
+    int min = Head->Data;
     while (Head != NULL)
     {
-        if (Head->Data % 2 != 0)
-        {
-            printf("%d ", Head->Data);
-        }
+        if (Head->Data < min)
+            min = Head->Data;
         Head = Head->Next;
     }
+    return min;
 }
 
 int main()
 {
     PNODE First = NULL;
+    InsertFirst(&First, 70);
+    InsertFirst(&First, 30);
+    InsertFirst(&First, 90);
+    InsertFirst(&First, 10);
 
-    InsertFirst(&First, 11);
-    InsertFirst(&First, 20);
-    InsertFirst(&First, 31);
-    InsertFirst(&First, 42);
-
-    printf("Odd elements: ");
-    DisplayOdd(First);
-    printf("\n");
-
+    printf("Minimum : %d", Minimum(First));
     return 0;
 }

@@ -19,43 +19,35 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-void ReplaceNegative(PPNODE Head)
+int CountGreater(PNODE Head, int X)
 {
-    PNODE temp = *Head;
+    int count = 0;
 
-    while (temp != NULL)
-    {
-        if (temp->Data < 0)
-        {
-            temp->Data = 0;
-        }
-        temp = temp->Next;
-    }
-}
-
-void Display(PNODE Head)
-{
     while (Head != NULL)
     {
-        printf("%d ", Head->Data);
+        if (Head->Data > X)
+        {
+            count++;
+        }
         Head = Head->Next;
     }
+    return count;
 }
 
 int main()
 {
     PNODE First = NULL;
+    int x;
 
-    InsertFirst(&First, -10);
-    InsertFirst(&First, 20);
-    InsertFirst(&First, -5);
+    InsertFirst(&First, 10);
+    InsertFirst(&First, 25);
     InsertFirst(&First, 30);
+    InsertFirst(&First, 5);
 
-    ReplaceNegative(&First);
+    printf("Enter X: ");
+    scanf("%d", &x);
 
-    printf("List after replacing negatives: ");
-    Display(First);
-    printf("\n");
+    printf("Count greater than %d: %d\n", x, CountGreater(First, x));
 
     return 0;
 }

@@ -6,7 +6,6 @@ struct node
     int Data;
     struct node *Next;
 };
-
 typedef struct node NODE;
 typedef struct node* PNODE;
 typedef struct node** PPNODE;
@@ -19,28 +18,33 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-void DisplayEven(PNODE Head)
+int SumDigit(PNODE Head)
 {
+    int num, sum;
     while (Head != NULL)
     {
-        if (Head->Data % 2 == 0)
-            printf("%d ", Head->Data);
+        num = Head->Data;
+        sum = 0;
+        while (num != 0)
+        {
+            sum += num % 10;
+            num /= 10;
+        }
+        printf("%d ", sum);
         Head = Head->Next;
     }
+    return 0;
 }
 
 int main()
 {
     PNODE First = NULL;
-
-    InsertFirst(&First, 11);
+    InsertFirst(&First, 640);
+    InsertFirst(&First, 240);
     InsertFirst(&First, 20);
-    InsertFirst(&First, 32);
-    InsertFirst(&First, 41);
+    InsertFirst(&First, 230);
+    InsertFirst(&First, 110);
 
-    printf("Even elements: ");
-    DisplayEven(First);
-    printf("\n");
-
+    SumDigit(First);
     return 0;
 }

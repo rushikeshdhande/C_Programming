@@ -19,39 +19,35 @@ void InsertFirst(PPNODE Head, int no)
     *Head = newn;
 }
 
-void IncrementAll(PPNODE Head)
+int CountLess(PNODE Head, int X)
 {
-    PNODE temp = *Head;
+    int count = 0;
 
-    while (temp != NULL)
-    {
-        temp->Data = temp->Data + 1;
-        temp = temp->Next;
-    }
-}
-
-void Display(PNODE Head)
-{
     while (Head != NULL)
     {
-        printf("%d ", Head->Data);
+        if (Head->Data < X)
+        {
+            count++;
+        }
         Head = Head->Next;
     }
+    return count;
 }
 
 int main()
 {
     PNODE First = NULL;
+    int x;
 
     InsertFirst(&First, 10);
-    InsertFirst(&First, 20);
+    InsertFirst(&First, 25);
     InsertFirst(&First, 30);
+    InsertFirst(&First, 5);
 
-    IncrementAll(&First);
+    printf("Enter X: ");
+    scanf("%d", &x);
 
-    printf("List after incrementing elements: ");
-    Display(First);
-    printf("\n");
+    printf("Count less than %d: %d\n", x, CountLess(First, x));
 
     return 0;
 }
