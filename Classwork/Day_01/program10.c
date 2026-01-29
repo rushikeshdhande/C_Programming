@@ -32,7 +32,7 @@
 //  Description :   It is used to perform addition         
 //  Input :         Float, Float 
 //  Output :        Float
-//  Author :        Rushikesh Dhande
+//  Author :        Rushikesh Baban Dhande
 //  Date :          09/10/2025
 //
 /////////////////////////////////////////////////////////////////

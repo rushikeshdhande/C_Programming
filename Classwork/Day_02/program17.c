@@ -1,29 +1,97 @@
-#include<stdio.h>
-#include<stdbool.h>
+/////////////////////////////////////////////////////////////////
+//
+//  Required Header Files
+//  Description : This section includes necessary header files
+//
+/////////////////////////////////////////////////////////////////
+
+#include<stdio.h>        // For printf and scanf
+#include<stdbool.h>      // For bool, true and false
+
+/////////////////////////////////////////////////////////////////
+//
+//  Function Name : CheckEvenOdd
+//  Description   : This function checks whether the given
+//                  integer number is Even or Odd using
+//                  conditional expression
+//  Input         : Integer
+//  Output        : Boolean
+//                  true  -> Even number
+//                  false -> Odd number
+//  Author        : Rushikesh Baban Dhande
+//  Date          : 10/10/2025
+//
+/////////////////////////////////////////////////////////////////
 
 bool CheckEvenOdd(int iNo)
 {
+    /////////////////////////////////////////////////////////////////
+    // Business Logic
+    // Modulus operator is used inside conditional expression
+    // If number is divisible by 2, expression returns true
+    /////////////////////////////////////////////////////////////////
+
     return ((iNo % 2) == 0);
 }
 
+/////////////////////////////////////////////////////////////////
+//
+//  Entry Point Function
+//  Description : Execution of program starts from main()
+//                This program accepts a number from the user,
+//                checks Even or Odd using user-defined function
+//                and displays the result
+//
+/////////////////////////////////////////////////////////////////
+
 int main()
 {
+    /////////////////////////////////////////////////////////////////
+    // Variable Declaration
+    /////////////////////////////////////////////////////////////////
+
     int iValue = 0;
     bool bRet = false;
+
+    /////////////////////////////////////////////////////////////////
+    // Accept number from user
+    /////////////////////////////////////////////////////////////////
 
     printf("Enter number : ");
     scanf("%d",&iValue);
 
+    /////////////////////////////////////////////////////////////////
+    // Function call to check Even or Odd
+    /////////////////////////////////////////////////////////////////
+
     bRet = CheckEvenOdd(iValue);
+
+    /////////////////////////////////////////////////////////////////
+    // Display result based on returned boolean value
+    /////////////////////////////////////////////////////////////////
 
     if(bRet == true)
     {
-        printf("%d is Even number\n",iValue);
+        printf("%d is Even number\n", iValue);
     }
     else
     {
-        printf("%d is Odd number\n",iValue);
+        printf("%d is Odd number\n", iValue);
     }
+
+    /////////////////////////////////////////////////////////////////
+    // Return 0 indicates successful execution of program
+    /////////////////////////////////////////////////////////////////
 
     return 0;
 }
+
+/////////////////////////////////////////////////////////////////
+//
+//  Test Cases Successfully Handled By The Application
+//
+//  Input : 10        Output : 10 is Even number
+//  Input : 15        Output : 15 is Odd number
+//  Input : 0         Output : 0 is Even number
+//
+/////////////////////////////////////////////////////////////////
