@@ -21,11 +21,9 @@ void CountFactorsNonFactors(int iNo)
             iFrequency2++;
         }
     }
-
     printf("Number of factors are : %d\n",iFrequency1);
     printf("Number of non factors are : %d\n",iFrequency2);
 }
-
 int main()
 {
     int iValue = 0;
