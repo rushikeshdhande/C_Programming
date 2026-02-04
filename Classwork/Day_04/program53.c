@@ -1,9 +1,7 @@
 #include<stdio.h>
-
 void CountFactorsNonFactors(int iNo)
 {
     int iCnt = 0, iFrequency1 = 0, iFrequency2 = 0;
-
     if(iNo < 0)
     {
         iNo = -iNo;
@@ -27,7 +25,6 @@ void CountFactorsNonFactors(int iNo)
 int main()
 {
     int iValue = 0;
-
     printf("Enter the number : \n");
     scanf("%d",&iValue);
 
